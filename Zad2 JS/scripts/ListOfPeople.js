@@ -9,16 +9,24 @@ function ListOfPeople() {
         people = [];
     };
     
-    var generateTableHeader = function () {
-    return '<tr><th><button onclick="viewModel.sort(comparator.byId)">ID</button></th> <th><button onclick="viewModel.sort(comparator.byName)">Name</button></th> <th><button onclick="viewModel.sort(comparator.bySurname)">Surname</button></th>  <th><button onclick="viewModel.sort(comparator.byGender)">Gender</button></th> <th><button onclick="viewModel.sort(comparator.byAge)">Age</button></th> <th><button onclick="viewModel.sort(comparator.byEmail)">Email</button></th>  <th><button onclick="viewModel.sort(comparator.byIncome)">Income</button></th><th><button onclick="viewModel.sort(comparator.byBirthsday)">Birthsday</button></th></tr>';
+    var generateTableHeader= function () {
+        return '<tr><th>NR</th>'
+            + '<th><button onclick="viewModel.sort(comparator.byId)">Id</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byName)">Name</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.bySurname)">Surname</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byGender)">Gender</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byEmail)">Email</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byAge)">Age</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byBirthsday)">Birthsday</button></th>'
+            + '<th><button onclick="viewModel.sort(comparator.byIncome)">Income</button></th></tr>';
     }
     
-    self.toTable = function () {
+    self.toTable = function (ser) {
         var table = '<table>';
         table += generateTableHeader;
    
-        for (var i = 0; i < people.length; i++ ) {
-            table += people[i].toTableRow();
+        for (var i = 0; i < people.length; i++) {
+            table += people[i].toTableRow(i+1+ser);
         }
         table += '</table>';
         return table;

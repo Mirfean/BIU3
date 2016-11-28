@@ -7,5 +7,5 @@ var viewModel = new PeopleTableViewModel({
 var comparator = new Comparators();
 
 function init() {
-    viewModel.next();
+    viewModel.start();
 }

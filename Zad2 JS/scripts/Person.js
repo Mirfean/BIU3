@@ -9,8 +9,10 @@ function Person(json) {
     self.age = json.age;
     self.birthsday = json.birthsday;
     
-    self.toTableRow = function () {
+    self.toTableRow = function (NR) {
         return '<tr><td>'
+            + NR
+            + '</td><td>'
             + self.id
             + '</td><td>'
             + self.name
@@ -19,13 +21,13 @@ function Person(json) {
             + '</td><td>'
             + self.gender
             + '</td><td>'
-            + self.age
-            + '</td><td>'
             + self.email
             + '</td><td>'
-            + self.income
+            + self.age
             + '</td><td>'
             + self.birthsday
+            + '</td><td>'
+            + self.income
             + '</td></tr>';
     };
     

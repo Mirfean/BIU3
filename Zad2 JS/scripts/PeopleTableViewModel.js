@@ -2,6 +2,7 @@ function PeopleTableViewModel(config) {
     var self = this;
     self.people = new ListOfPeople();
     self.currentPage = 0;
+    self.numb = 0;
     self.pageSize = config.pageSize;
     self.context = config.context;
     
@@ -19,17 +20,28 @@ function PeopleTableViewModel(config) {
 
     self.next = function() {
         self.people.clear();
+        self.currentPage++;
         var begin = (self.currentPage) * self.pageSize;
         var end = (self.currentPage + 1) * self.pageSize;
         getData(begin, end);
-        self.currentPage++;
-        self.context.innerHTML = self.people.toTable();
+        self.numb+=self.pageSize;
+        self.context.innerHTML = self.people.toTable(self.numb);
+    };
+    
+    self.start = function() {
+        self.people.clear();
+        var begin = (self.currentPage) * self.pageSize;
+        var end = (self.currentPage + 1) * self.pageSize;
+        getData(begin, end);
+        self.numb = 0;
+        self.context.innerHTML = self.people.toTable(self.numb);
     };
     
     self.change = function(pgSize) {
         self.pageSize = pgSize;
         self.currentPage = 0;
-        self.next();
+        self.numb = 0;
+        self.start();
     };
 
     self.prev = function() {
@@ -40,12 +52,15 @@ function PeopleTableViewModel(config) {
         var begin = (self.currentPage) * self.pageSize;
         var end = (self.currentPage + 1) * self.pageSize;
         getData(begin, end);
-        self.context.innerHTML = self.people.toTable();
+        self.numb-=self.pageSize;
+        self.context.innerHTML = self.people.toTable(self.numb);
     };
     
     self.sort = function(comparer) {
+        comparator.setState();
         data.sort(comparer);
         self.currentPage = 0;
-        self.next();
+        self.numb = 0;
+        self.start();
     };
 }
