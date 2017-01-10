@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.weapons {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 1;
+    width: 200px;
+}
+
+.weapons li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    padding: 0.4em 0;
+    height: 1.8em;
+    width: 500px;
+}
+
+.weapons li.selected:hover {
+    background-color: deepskyblue !important;
+    color: white;
+}
+
+.weapons li:hover {
+    color: white;
+    background-color: blue;
+    left: .1em;
+    border: none;
+}
+
+.weapons .badge {
+    float: left;
+    font-size: small;
+    font-weight: bold;
+    padding: 1em 1em 0 1em;
+    background-color: darkorange;
+    line-height: 1em;
+    position: relative;
+    top: -20px;
+    height: 1.8em;
+    border-radius: 100%;
+}
+
+p {
+    position: relative;
+    top: -12px;
+    left: 10px;
+}
+
+.like {
+    float: right;
+    left: 120px;
+    position: relative;
+    top: -50px;
+    transition: all .2s ease-in-out;
+}
+
+.unlike {
+    float: right;
+    left: 340px;
+    position: relative;
+    top: -50px;
+    transition: all .2s ease-in-out;
+}
+
+.nlike {
+    float: right;
+    left: 480px;
+    position: relative;
+    top: -50px;
+    background-color: darkred;
+    color: white;
+    cursor: pointer;
+    width: 25px;
+    text-align: center;
+}
+
+.button {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    width: 100px;
+}
+
+.sort {
+    cursor: pointer;
+    float: right;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    font-size: 22px;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    color: white;
+    margin-left: 20px;
+}

@@ -1,0 +1,22 @@
+<div *ngIf="selectedWeapon">
+    <div>
+        <label>Selected weapon: </label>
+        <input [(ngModel)]="selectedWeapon.name" placeholder="weapon name" />
+    </div>
+</div>
+<ul class="weapons">
+    <li *ngFor="let weapon of weapons" [class.selected]="weapon === selectedWeapon" (click)="onSelect(weapon)">
+        <div>
+            <span class="badge">{{weapon.id}}</span>
+            <p>{{weapon.name}}</p>
+        </div>
+        <div *ngIf="selectedWeapon" class="like">
+            <button class="button" (click)="like(weapon)">I like It! </button>
+        </div>
+        <div *ngIf="selectedWeapon" class="unlike">
+            <button class="button" (click)="unlike(weapon)">It sucks!</button>
+        </div>
+        <div class="nlike">{{weapon.like}}</div>
+    </li>
+    <button class="sort" (click)="onSort()">Most popular weapon </button>
+</ul>
